@@ -4,6 +4,8 @@ import { LoginPage } from './pages/LoginPage';
 import { ProductPage } from './pages/ProductPage';
 import { OrderTunnel } from './pages/OrderTunnel';
 
+test.use({ userAgent: 'LMUser Cerberus' });
+
 test('go to the homepage', async({ page }) => {
         const menuPage = new MenuPage(page);
         const loginPage = new LoginPage(page);
@@ -13,7 +15,7 @@ test('go to the homepage', async({ page }) => {
         // const checkoutReview = page.getByRole('heading', { name: 'Récapitulatif' })
         const checkoutReview = page.locator('//*[@class="confirmation-header-message"]');
 
-        await menuPage.goto('https://leroymerlin-frlm-uat1.nprd-02-a9ef.priv.manawa.adeo.cloud/');
+        await menuPage.goto();
         await menuPage.validateConsentCookies();
         await menuPage.goToAccountLogin();
         await loginPage.login('alphonse.brown@yopmail.com', 'ler123LM');

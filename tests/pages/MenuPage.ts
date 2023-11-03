@@ -17,8 +17,8 @@ export class MenuPage {
         this.searchProduct = page.getByPlaceholder('Rechercher un produit, une marque...');
       }
 
-      async goto(PathUrl:any) {
-        await this.page.goto("" + PathUrl);
+      async goto() {
+        await this.page.goto("" + process.env.WEB_URL);
         await this.page.waitForLoadState();
       }
     
