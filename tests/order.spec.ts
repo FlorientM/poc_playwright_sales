@@ -18,7 +18,7 @@ test('go to the homepage', async({ page }) => {
         const customer = await getDataLib('LM-CUSTOMER');
         const product = await getDataLib('LM-1P-DATASET');
 
-        await menuPage.goto();
+        test.step('Go to Homepage', async () => {await menuPage.goto()});
         await menuPage.validateConsentCookies();
         await menuPage.goToAccountLogin();
         await loginPage.login(customer.user.email, customer.user.password);
