@@ -8,6 +8,7 @@ export class ProductPage {
     readonly addToWishlist: Locator;
     readonly inputCreateWishlist: Locator;
     readonly validateWishlistButton: Locator;
+    readonly itemAddToWishlist: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -16,6 +17,7 @@ export class ProductPage {
         this.addToWishlist = page.getByTestId('BTN_addToShoppingList');
         this.inputCreateWishlist = page.getByTestId('INPUT_createShoppingList');
         this.validateWishlistButton = page.getByTestId('BTN_submitAddToShoppingList');
+        this.itemAddToWishlist = page.getByTestId('itemAddToShoppingList');
     }
 
     async addProductToCart() {
@@ -44,5 +46,9 @@ export class ProductPage {
     async validateWishlistCreation() {
         await expect(this.validateWishlistButton).toBeEnabled;
         await this.validateWishlistButton.click();
+    }
+
+    async checkItemAddedToWishlist() {
+        await expect(this.itemAddToWishlist).toBeVisible();
     }
 }

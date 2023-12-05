@@ -14,7 +14,6 @@ test('go to the homepage', async({ page }) => {
         const productPage = new ProductPage(page);
         const orderTunnel = new OrderTunnel(page);
         const loyalty = page.locator('//*[@class="ipn-loyalty-card-no-loyalty"]');
-        // const checkoutReview = page.getByRole('heading', { name: 'Récapitulatif' })
         const checkoutReview = page.locator('//*[@class="confirmation-header-message"]');
         const customer = await getDataLib('LM-CUSTOMER');
         const product = await getDataLib('LM-1P-DATASET');
@@ -30,6 +29,7 @@ test('go to the homepage', async({ page }) => {
         await productPage.addProductToWishlist();
         await productPage.createWishlistName();
         await productPage.validateWishlistCreation();
+        await productPage.checkItemAddedToWishlist();
 
         let dateString = moment().format("YYYYMMDD-HHmmss");
 
