@@ -10,7 +10,7 @@ async function globalSetup(config) {
     });
   } else {
     dotenv.config({
-      path: `envs/.env.lmfr-prep`,
+      path: `envs/.env.lmfr-uat`,
       override: true
     });
   }

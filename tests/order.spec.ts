@@ -4,6 +4,7 @@ import { LoginPage } from './pages/LoginPage';
 import { ProductPage } from './pages/ProductPage';
 import { OrderTunnel } from './pages/OrderTunnel';
 import { getDataLib } from '../utils/datasetManager';
+import moment from 'moment';
 
 test.use({ userAgent: 'LMUser Cerberus' });
 
@@ -33,7 +34,7 @@ test('go to the homepage', async({ page }) => {
         await orderTunnel.fillPaymentInfo();
         await checkoutReview.waitFor();
         await expect(checkoutReview).toBeVisible();
-
+        /*
         let date = new Date();
         let year: string = date.getFullYear().toString();
         let month: string =  (date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() +1).toString();
@@ -42,6 +43,9 @@ test('go to the homepage', async({ page }) => {
         let minutes: string = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()).toString();
         let secondes: string = (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()).toString();
         let dateString = year + month + day+"-"+hours+minutes+secondes;
+        */
+        // la fonction suivante condense tout le code commenté précédent
+        let dateString = moment().format("YYYYMMDD-HHmmss");
 
         await page.screenshot({ path: 'test-results/screenshots/'+ dateString + '.png', fullPage: true });
         // await page.screenshot({path: '././test-results/checkoutreview.png', fullPage: true});
