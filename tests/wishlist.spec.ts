@@ -30,6 +30,8 @@ test('go to the homepage', async({ page }) => {
         await productPage.createWishlistName();
         await productPage.validateWishlistCreation();
         await productPage.checkItemAddedToWishlist();
+        await productPage.goToSeeMyLists();
+        await productPage.checkWishlistDetails(product.product.RNC1P);        
 
         let dateString = moment().format("YYYYMMDD-HHmmss");
 
