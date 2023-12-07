@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
+import moment from 'moment';
 import exp from 'constants';
 
 export class ProductPage {
@@ -55,9 +56,10 @@ export class ProductPage {
     }
 
     async createWishlistName() {
+        let dateString = moment().format("YYYYMMDD-HHmmss");
         await expect(this.inputCreateWishlist).toBeEditable;
         await this.inputCreateWishlist.click();
-        await this.inputCreateWishlist.pressSequentially('WishlistFlo');
+        await this.inputCreateWishlist.pressSequentially('WishlistFlo' + dateString);
     }
 
     async validateWishlistCreation() {
