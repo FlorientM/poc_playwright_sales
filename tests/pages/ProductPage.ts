@@ -1,5 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { getDataLib } from '../../utils/datasetManager';
 import exp from 'constants';
 
 export class ProductPage {
@@ -72,16 +71,5 @@ export class ProductPage {
 
     async goToSeeMyLists() {
         await this.seeMyLists.click();
-    }
-
-    async checkWishlistDetails(adeoKey: string) {
-        await expect(this.page.locator('//*[@class="offer-showcase__ref"]/p[contains(.,"' + adeoKey +'")]')).toBeVisible();
-        await expect(this.selectAllButton).toBeEnabled;
-        await expect(this.qtySelectorField).toBeVisible;
-        await expect(this.addToCartFromWishlist).toBeEnabled;
-        await expect(this.deleteFromWishlist).toBeEnabled;
-        await expect(this.availabilityBlock).toBeVisible;
-        await expect(this.addWishlistToCart).toBeEnabled;
-        await expect(this.deleteTheWishlist).toBeEnabled;
     }
 }

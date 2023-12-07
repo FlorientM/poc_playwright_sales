@@ -34,6 +34,13 @@ test('go to the homepage', async({ page }) => {
         await productPage.checkItemAddedToWishlist();
         await productPage.goToSeeMyLists();
         await wishlistPage.checkWishlistDetails(product.product.RNC1P);
+        await wishlistPage.addToCartFromTheWhishlist();
+        await menuPage.goToCart();
+        await orderTunnel.validateTheCart();
+        await orderTunnel.validateTheDelivery();
+        await orderTunnel.fillPaymentInfo();
+        await checkoutReview.waitFor();
+        await expect(checkoutReview).toBeVisible();
 
         let dateString = moment().format("YYYYMMDD-HHmmss");
 
