@@ -3,7 +3,7 @@ import { MenuPage } from './pages/menuPage';
 import { LoginPage } from './pages/LoginPage';
 import { ProductPage } from './pages/ProductPage';
 import { OrderTunnel } from './pages/OrderTunnel';
-import { getDataLib } from '../utils/datasetManager';
+import { getDatalib } from '../utils/datasetManager';
 import { WishlistPage } from './pages/wishlistPage';
 import moment from 'moment';
 
@@ -17,8 +17,8 @@ test('go to the homepage', async({ page }) => {
         const wishlistPage = new WishlistPage(page);
         const loyalty = page.locator('//*[@class="ipn-loyalty-card-no-loyalty"]');
         const checkoutReview = page.locator('//*[@class="confirmation-header-message"]');
-        const customer = await getDataLib('LM-CUSTOMER');
-        const product = await getDataLib('LM-1P-DATASET');
+        const customer = await getDatalib('lmfr-uat', 'LM-CUSTOMER');
+        const product = await getDatalib('lmfr-uat', 'LM-1P-DATASET');
 
         test.step('Go to Homepage', async () => {await menuPage.goto()});
         await menuPage.validateConsentCookies();
