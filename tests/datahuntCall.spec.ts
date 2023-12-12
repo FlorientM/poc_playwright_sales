@@ -11,9 +11,10 @@ test.describe.serial("Make an order", () => {
 
         });
         */
+        /*
         test.describe.serial("Sub collection", () => {
             // Before SUb Collection
-            /*
+            
             test.beforeAll(async () => {
 
             });
@@ -21,8 +22,9 @@ test.describe.serial("Make an order", () => {
             test("Tutu", async ({request}) => {
 
             })
-            */
-        });
+            
+        });*/
+        
 
     test('Get offer from Datahunt', async({ request }) => {
         let datahunt = new DatahuntApi(request);
@@ -33,7 +35,8 @@ test.describe.serial("Make an order", () => {
         let responseBody = await response.json();
 
         // Asserts
-        expect(response.status).toEqual(200);
+        // expect(response.status).toEqual(200);
+        await expect(response).toBeOK();
 
         // Data stocking for next tests
         order_id = responseBody.order_id;

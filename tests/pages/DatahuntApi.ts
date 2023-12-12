@@ -9,7 +9,7 @@ export class DatahuntApi {
 
     async getDataFromDeliveryMethod(method: OrderDeliveryMethod) {
         //Pre Request
-        let sqlQuery;
+        let sqlQuery: String;
         switch(method) {
             case OrderDeliveryMethod.RESERVE_AND_COLLECT:
                 sqlQuery = "SELECT DISTINCT(AdeoKey), OfferCode FROM `dfdp-datahunt-uat.datahunt_QA_views_uat.LMFR - RnC` LIMIT 50";
@@ -22,8 +22,11 @@ export class DatahuntApi {
         }
         
         let options = {
+            headers: {
+                "x-gateway-apikey": process.env.APIKEY_DATAHUNT
+            },
             data: {
-                "query": sqlQuery
+                "body": sqlQuery,
             }
         };
 

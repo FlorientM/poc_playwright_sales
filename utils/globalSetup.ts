@@ -1,7 +1,6 @@
-const { FullConfig } = require("@playwright/test");
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
-async function globalSetup(config) {
+async function globalSetup() {
 
   if(process.env.context) {
     dotenv.config({
