@@ -4,7 +4,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { ProductPage } from '../pages/ProductPage';
 import { OrderTunnel } from '../pages/OrderTunnel';
 import { getDatalib } from '../utils/datasetManager';
-import { WishlistPage } from '../pages/wishlistPage';
+import { WishlistPage } from '../pages/WishlistPage';
 import moment from 'moment';
 
 test.use({ userAgent: 'LMUser Cerberus' });
