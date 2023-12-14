@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { MenuPage } from './pages/menuPage';
-import { LoginPage } from './pages/LoginPage';
-import { ProductPage } from './pages/ProductPage';
-import { OrderTunnel } from './pages/OrderTunnel';
+import { MenuPage } from '../pages/MenuPage';
+import { LoginPage } from '../pages/LoginPage';
+import { ProductPage } from '../pages/ProductPage';
+import { OrderTunnel } from '../pages/OrderTunnel';
 import { getDatalib } from '../utils/datasetManager';
 import moment from 'moment';
 

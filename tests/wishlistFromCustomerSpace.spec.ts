@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { MenuPage } from './pages/menuPage';
-import { LoginPage } from './pages/LoginPage';
-import { ProductPage } from './pages/ProductPage';
+import { MenuPage } from '../pages/MenuPage';
+import { LoginPage } from '../pages/LoginPage';
+import { ProductPage } from '../pages/ProductPage';
 import { getDatalib } from '../utils/datasetManager';
-import { WishlistPage } from './pages/wishlistPage';
-import { CustomerSpacePage } from './pages/CustomerSpacePage';
+import { WishlistPage } from '../pages/WishlistPage';
+import { CustomerSpacePage } from '../pages/CustomerSpacePage';
 import moment from 'moment';
 
 test.use({ userAgent: 'LMUser Cerberus' });

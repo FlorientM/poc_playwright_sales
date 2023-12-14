@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { DatahuntApi, OrderDeliveryMethod } from './pages/DatahuntApi';
+import { DatahuntApi, OrderDeliveryMethod } from '../pages/DatahuntApi';
 
 test.describe.serial("Make an order", () => {
         let context = {};
