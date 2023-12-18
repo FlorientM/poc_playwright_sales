@@ -23,7 +23,7 @@ export class DatahuntApi {
         
         let options = {
             headers: {
-                "x-gateway-apikey": process.env.APIKEY_DATAHUNT
+                "x-gateway-apikey": process.env.APIKEY_DATAHUNT,
             },
             data: {
                 "body": sqlQuery,
