@@ -1,4 +1,5 @@
 import { APIRequestContext, Request } from "@playwright/test";
+import { getEnvVariable } from "../utils/shared";
 
 export class DatahuntApi {
     private request: APIRequestContext;
@@ -9,29 +10,29 @@ export class DatahuntApi {
 
     async getDataFromDeliveryMethod(method: OrderDeliveryMethod) {
         //Pre Request
-        let sqlQuery: String;
+        let sqlQuery: string;
         switch(method) {
             case OrderDeliveryMethod.RESERVE_AND_COLLECT:
-                sqlQuery = "SELECT DISTINCT(AdeoKey), OfferCode FROM `dfdp-datahunt-uat.datahunt_QA_views_uat.LMFR - RnC` LIMIT 50";
+                sqlQuery = "SELECT DISTINCT(AdeoKey), OfferCode FROM `dfdp-datahunt-uat.datahunt_QA_views_uat.LMFR - RnC` LIMIT 10";
                 break;
             case OrderDeliveryMethod.HOME_DELIVERY:
-                sqlQuery = "SELECT DISTINCT(AdeoKey), OfferCode FROM `dfdp-datahunt-uat.datahunt_QA_views_uat.LMFR - SFS Std` LIMIT 50";
+                sqlQuery = "SELECT DISTINCT(AdeoKey), OfferCode FROM `dfdp-datahunt-uat.datahunt_QA_views_uat.LMFR - SFS Std` LIMIT 10";
                 break;
             default:
                 throw new Error("Mode de livraison indisponible");    
         }
         
-        let options = {
+        const options = {
             headers: {
-                "x-gateway-apikey": process.env.APIKEY_DATAHUNT,
+                "x-gateway-apikey": getEnvVariable('APIKEY_DATAHUNT'),
             },
-            data: {
-                "body": sqlQuery,
-            }
-        };
+            data: sqlQuery
+            
+        };        
 
         // API call
         return this.request.post(process.env.GTDP_URL + "/api-datahunt-adeo-network/v1/query", options);
+        
     }
 }
 export enum OrderDeliveryMethod {
